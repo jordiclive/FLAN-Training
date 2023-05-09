@@ -242,7 +242,7 @@ def generic_train(
 
     if not args.local:
         with open(args.deepspeed_config, "r") as f:
-            deepspeed_config = json.load(args.deepspeed_config)
+            deepspeed_config = json.load(f)
         train_params["strategy"] = DeepSpeedStrategy(config=deepspeed_config)
     if args.logger_name == "wandb":
         from pytorch_lightning.loggers import WandbLogger
