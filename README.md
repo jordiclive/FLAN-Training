@@ -9,5 +9,5 @@ Run `python --configs defaults your_override_config`
 Where `your_override_config` is specified in c`onfigs/config.yaml`. You can also override args in the cmd line.
 
 
-- Todo: Add Flash attention and multi-node slurm script.
+- Todo: Add Flash attention and add multi-node slurm script.
 
