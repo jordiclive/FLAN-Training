@@ -222,6 +222,8 @@ def generic_train(
     train_params["gradient_clip_val"] = args.gradient_clip_val
     train_params["val_check_interval"] = args.val_check_interval
     train_params["num_sanity_val_steps"] = args.num_sanity_val_steps
+    train_params["max_epochs"] = args.num_train_epochs
+
     if model.hparams.local:
         train_params["precision"] = 32
         train_params["num_sanity_val_steps"] = 10
