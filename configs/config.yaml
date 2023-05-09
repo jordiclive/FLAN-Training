@@ -13,7 +13,7 @@ defaults:
   precision: fp16
   gpus: 8
   visible_devices: "0,1,2,3,4,5,6,7"
-  deepspeed_config: configs/zero_config.yaml
+  deepspeed_config: configs/zero_config.json
   max_seq_length: 416
   max_target_length: 152
   eval_max_gen_length: 150
@@ -61,5 +61,5 @@ debug:
 train:
   data_path: parquet_dummy
   wandb_key: "d8216641d549f9bb3d0c5074baa39e15dfd55030"
-  deepspeed_config: /admin/home-jordiclive/FLAN-Training/configs/zero_config.yaml
+#  deepspeed_config: /admin/home-jordiclive/FLAN-Training/configs/zero_config.json
 
