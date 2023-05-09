@@ -5,6 +5,7 @@ defaults:
   grad_checkpoint: false
   warmup_steps: 2000
   learning_rate: 0.0003
+  num_workers: 28
   num_train_epochs: 15
   gradient_accumulation_steps: 1
   val_check_interval: 0.25
@@ -22,7 +23,6 @@ defaults:
   test_max_target_length: 150
   freeze_embeds: true
   label_smoothing: 0
-  num_workers: 80
   logger_name: wandb
   wb_name: retrain-more-prompts-13B
   wb_project: flan-summarization
@@ -58,10 +58,9 @@ debug:
   data_path: parquet_dummy
   offline: True
   wandb_key: "X"
-  id: "X"
 
 train:
   data_path: parquet_dummy
   wandb_key: "d8216641d549f9bb3d0c5074baa39e15dfd55030"
   deepspeed_config: /admin/home-jordiclive/FLAN-Training/configs/zero_config.json
-  id: "RUN"
+  id: "flan code"
