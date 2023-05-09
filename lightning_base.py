@@ -241,7 +241,7 @@ def generic_train(
         train_params["limit_val_batches"] = 30
 
     if not args.local:
-        with open("deepspeed_config.json", "r") as f:
+        with open(args.deepspeed_config, "r") as f:
             deepspeed_config = json.load(args.deepspeed_config)
         train_params["strategy"] = DeepSpeedStrategy(config=deepspeed_config)
     if args.logger_name == "wandb":
