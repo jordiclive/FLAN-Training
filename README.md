@@ -6,7 +6,7 @@ Alter the config.yaml, and specify the data_path, currently expects train.parque
 
 Run `python --configs defaults your_override_config`
 
-Where `your_override_config` is specified in c`onfigs/config.yaml`. You can also override args in the cmd line.
+Where `your_override_config` is specified in `configs/config.yaml`. You can also override args in the cmd line.
 
 
 - Todo: Add Flash attention and add multi-node slurm script.
