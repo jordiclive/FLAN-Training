@@ -5,15 +5,16 @@ defaults:
   grad_checkpoint: false
   warmup_steps: 2000
   learning_rate: 0.0003
+  num_workers: 28
   num_train_epochs: 15
   gradient_accumulation_steps: 1
   val_check_interval: 0.25
   val_metric: val_loss_epoch
   num_sanity_val_steps: -1
-  precision: fp16
+  precision: 16
   gpus: 8
   visible_devices: "0,1,2,3,4,5,6,7"
-  deepspeed_config: configs/zero_config.yaml
+  deepspeed_config: configs/zero_config.json
   max_seq_length: 416
   max_target_length: 152
   eval_max_gen_length: 150
@@ -22,7 +23,6 @@ defaults:
   test_max_target_length: 150
   freeze_embeds: true
   label_smoothing: 0
-  num_workers: 80
   logger_name: wandb
   wb_name: retrain-more-prompts-13B
   wb_project: flan-summarization
@@ -50,10 +50,19 @@ defaults:
   limit_val_batches:
   resume_from_checkpoint:
   output_dir: "output"
+  id: "wandb_id"
+  hf_checkpoint:
+
 debug:
   local: True
   debug_mode: True
   data_path: parquet_dummy
   offline: True
   wandb_key: "X"
-  id: "X"
+
+train:
+  data_path: parquet_dummy
+  wandb_key: "X"
+  deepspeed_config: /admin/home-jordiclive/FLAN-Training/configs/zero_config.json
+  id: "flan code"
+  generate_during_val: True

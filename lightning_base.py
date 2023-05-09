@@ -9,8 +9,8 @@ import wandb
 from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.strategies import DeepSpeedStrategy
 from pytorch_lightning.utilities import rank_zero_info, rank_zero_only
-from transformers import (AdamW, AutoConfig, AutoModel,
-                          AutoModelForPreTraining,
+from torch.optim import AdamW
+from transformers import (AutoConfig, AutoModel, AutoModelForPreTraining,
                           AutoModelForQuestionAnswering, AutoModelForSeq2SeqLM,
                           AutoModelForSequenceClassification,
                           AutoModelForTokenClassification, AutoModelWithLMHead,
@@ -222,6 +222,8 @@ def generic_train(
     train_params["gradient_clip_val"] = args.gradient_clip_val
     train_params["val_check_interval"] = args.val_check_interval
     train_params["num_sanity_val_steps"] = args.num_sanity_val_steps
+    train_params["max_epochs"] = args.num_train_epochs
+
     if model.hparams.local:
         train_params["precision"] = 32
         train_params["num_sanity_val_steps"] = 10
@@ -241,8 +243,8 @@ def generic_train(
         train_params["limit_val_batches"] = 30
 
     if not args.local:
-        with open("deepspeed_config.json", "r") as f:
-            deepspeed_config = json.load(args.deepspeed_config)
+        with open(args.deepspeed_config, "r") as f:
+            deepspeed_config = json.load(f)
         train_params["strategy"] = DeepSpeedStrategy(config=deepspeed_config)
     if args.logger_name == "wandb":
         from pytorch_lightning.loggers import WandbLogger

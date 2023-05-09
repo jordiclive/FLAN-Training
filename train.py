@@ -35,6 +35,7 @@ class ClassificationTransformer(BaseTransformer):
         self.model_name_or_path = self.hparams.model_name_or_path
         self.metric_names = ROUGE_KEYS
         self.decoder_start_token_id = None
+        self.pad_token_id = self.tokenizer.pad_token_id
         self.eval_beams = (
             self.model.config.num_beams
             if self.hparams.eval_beams is None
