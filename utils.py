@@ -3,6 +3,7 @@ import re
 from distutils.util import strtobool
 from pathlib import Path
 from typing import Dict, List, Tuple
+from rouge_score import rouge_scorer, scoring
 
 import nltk
 import yaml
