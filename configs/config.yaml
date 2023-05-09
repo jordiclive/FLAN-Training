@@ -57,3 +57,8 @@ debug:
   offline: True
   wandb_key: "X"
   id: "X"
+
+train:
+  data_path: parquet_dummy
+
+
