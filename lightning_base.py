@@ -9,12 +9,13 @@ import wandb
 from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.strategies import DeepSpeedStrategy
 from pytorch_lightning.utilities import rank_zero_info, rank_zero_only
-from transformers import (AdamW, AutoConfig, AutoModel,
+from transformers import ( AutoConfig, AutoModel,
                           AutoModelForPreTraining,
                           AutoModelForQuestionAnswering, AutoModelForSeq2SeqLM,
                           AutoModelForSequenceClassification,
                           AutoModelForTokenClassification, AutoModelWithLMHead,
                           AutoTokenizer, PretrainedConfig, PreTrainedTokenizer)
+from torch.optim import AdamW
 from transformers.optimization import (
     Adafactor, get_cosine_schedule_with_warmup,
     get_cosine_with_hard_restarts_schedule_with_warmup,
