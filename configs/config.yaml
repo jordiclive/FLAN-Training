@@ -10,7 +10,7 @@ defaults:
   val_check_interval: 0.25
   val_metric: val_loss_epoch
   num_sanity_val_steps: -1
-  precision: fp16
+  precision: 16
   gpus: 8
   visible_devices: "0,1,2,3,4,5,6,7"
   deepspeed_config: configs/zero_config.json
@@ -50,7 +50,7 @@ defaults:
   limit_val_batches:
   resume_from_checkpoint:
   output_dir: "output"
-  id: "X"
+  id: "wandb_id"
 debug:
   local: True
   debug_mode: True
