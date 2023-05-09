@@ -61,5 +61,5 @@ debug:
 train:
   data_path: parquet_dummy
   wandb_key: "d8216641d549f9bb3d0c5074baa39e15dfd55030"
-#  deepspeed_config: /admin/home-jordiclive/FLAN-Training/configs/zero_config.json
+  deepspeed_config: /admin/home-jordiclive/FLAN-Training/configs/zero_config.json
 
