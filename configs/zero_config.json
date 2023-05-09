@@ -24,5 +24,6 @@
     "reduce_scatter": true,
     "reduce_bucket_size": 1e9,
     "contiguous_gradients": true
-  }
+  },
+  "zero_allow_untested_optimizer": true
 }
