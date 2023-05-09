@@ -51,6 +51,7 @@ defaults:
   resume_from_checkpoint:
   output_dir: "output"
   id: "wandb_id"
+  hf_checkpoint:
 debug:
   local: True
   debug_mode: True
