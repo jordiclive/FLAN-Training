@@ -1,0 +1,59 @@
+defaults:
+  model_name_or_path: t5-small
+  train_batch_size: 50
+  eval_batch_size: 32
+  grad_checkpoint: false
+  warmup_steps: 2000
+  learning_rate: 0.0003
+  num_train_epochs: 15
+  gradient_accumulation_steps: 1
+  val_check_interval: 0.25
+  val_metric: val_loss_epoch
+  num_sanity_val_steps: -1
+  precision: fp16
+  gpus: 8
+  visible_devices: "0,1,2,3,4,5,6,7"
+  deepspeed_config: configs/zero_config.yaml
+  max_seq_length: 416
+  max_target_length: 152
+  eval_max_gen_length: 150
+  eval_min_length: 5
+  val_max_target_length: 60
+  test_max_target_length: 150
+  freeze_embeds: true
+  label_smoothing: 0
+  num_workers: 80
+  logger_name: wandb
+  wb_name: retrain-more-prompts-13B
+  wb_project: flan-summarization
+  wb_entity: jordanclive
+  data_path: final_dataset
+  adam_epsilon: 1e-8
+  offline: false
+  gradient_clip_val: 1.0
+  lr_scheduler: "linear"
+  seed: 42
+  monitor: val_loss
+  full_test: false
+  save_path_for_test: 
+  debug_mode: false
+  config_name: 
+  cache_dir: 
+  weight_decay: 0.01
+  local: false
+  skip_val: false
+  length_penalty: 1.0
+  no_repeat_ngram_size: 3
+  generate_during_val: false
+  eval_beams: 5
+  devices:
+  limit_val_batches:
+  resume_from_checkpoint:
+  output_dir: "output"
+debug:
+  local: True
+  debug_mode: True
+  data_path: parquet_dummy
+  offline: True
+  wandb_key: "X"
+  id: "X"
